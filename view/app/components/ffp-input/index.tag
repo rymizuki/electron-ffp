@@ -1,8 +1,11 @@
+import css from './style'
 import { find } from './action-creator'
 
-<ffp-url-input>
+<ffp-input>
   <input type="text" onkeyup={ triggerInput } placeholder="">
   <button onclick={ triggerButton }>find</button>
+
+  <style>{ css }</style>
 
   <script>
     triggerInput (e) {
@@ -12,4 +15,4 @@ import { find } from './action-creator'
       find(this.content)
     }
   </script>
-</ffp-url-input>
+</ffp-input>

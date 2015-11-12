@@ -1,0 +1,8 @@
+ffp-body {
+  position: absolute;
+  top:    $header_height;
+  bottom: 0;
+  left:   0;
+  right:  0;
+  margin: 0;
+}
