@@ -2,7 +2,7 @@ import store from './store'
 import css   from './style'
 
 <ffp-code-pretty>
-  <pre>
+  <pre show={ body_beautify }>
     <code>
       <ol>
         <li
@@ -13,6 +13,9 @@ import css   from './style'
       </ol>
     </code>
   </pre>
+  <div class="usage" show={ !body_beautify }>
+    <p>Input the code position <code>URL:positon-y:position-x</code> in form.(ex: <code>http://localhost:9000/example.js:10:100</code>)</p>
+  </div>
 
   <style>{ css }</style>
 
