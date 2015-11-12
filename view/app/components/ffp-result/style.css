@@ -1,6 +1,7 @@
 ffp-result {
   display: block;
   margin: 0;
+  height: $result_height;
   padding: 5px 0;
 
   > dl {

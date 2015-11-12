@@ -30,7 +30,7 @@ export function find (target) {
           lines.push(line)
         }
         let content = lines.join('\n')
-        let content_beautify = beautify(content, { indent_size:2 })
+        let content_beautify = beautify(content, { indent_size: 2 })
         let lines_beautify = content_beautify.split(/\r?\n/)
 
         let position_y_beautify = 0

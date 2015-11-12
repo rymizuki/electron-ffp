@@ -41,6 +41,7 @@ module.exports = {
         unknown: (node, name, result) ->
           node.warn result, "Unknown variable '#{ name }'"
       })
+      require('postcss-calc')
       require('postcss-nested')
       require('autoprefixer')
     ]
