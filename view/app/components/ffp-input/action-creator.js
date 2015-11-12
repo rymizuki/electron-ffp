@@ -4,11 +4,19 @@ import qwest        from 'qwest'
 import beautify     from 'js-beautify'
 
 export function find (target) {
-  let matches = target.match(/(https?:\/\/.+?)(:[0-9]+)(:[0-9]+)$/)
-  if (matches) {
+  let matches
+  if (target && (matches = target.match(/(https?:\/\/.+?)(:[0-9]+)(:[0-9]+)$/))) {
     let url         = matches[1]
     let position_y  = matches[2].replace(/:/, '')
     let position_x  = matches[3].replace(/:/, '')
+
+    dispatcher.handleViewAction({
+      type: action_types.FIND_START,
+      target: target,
+      url,
+      position_x,
+      position_y,
+    })
 
     qwest.get(url)
       .then((res, body) => {
@@ -53,7 +61,6 @@ export function find (target) {
       .catch(() => {
         console.error('response failed', res)
       })
-
   } else {
     console.error('invalid')
   }

@@ -20,13 +20,10 @@ import css   from './style'
     this.font_size    = 13;
     this.line_height  = 1.5;
     this.height       = this.root.clientHeight
+    this.scroller     = null
 
     onFind (state) {
-      // 実行を1ターン遅らせる
-      // これによって、 `ffp-result` の表示が優先される
-      setTimeout(() => { 
-        this.update(state)
-      }, 1)
+      this.update(state)
     }
 
     this.on('mount', function () {
@@ -40,8 +37,9 @@ import css   from './style'
 
     this.on('update', function () {
       if (this.body_beautify) {
+        if (!this.scroller) this.scroller = this.root.getElementsByTagName('pre')[0]
         setTimeout(() => { // 1ターン遅延
-          this.root.scrollTop = (Math.floor(this.font_size * this.line_height) * (this.position_y_beautify - 1)) - (this.height / 2)
+          this.scroller.scrollTop = (Math.floor(this.font_size * this.line_height) * (this.position_y_beautify - 1)) - (this.height / 2)
         }, 1)
       }
     })

@@ -14,15 +14,15 @@ import css   from './style'
   <style>{ css }</style>
 
   <script>
-    onFind (state) {
+    onFindStart (state) {
       this.update(state)
     }
 
     this.on('mount', function () {
-      store.addFindListener(this.onFind)
+      store.addFindStartListener(this.onFindStart)
     })
     this.on('unmount', function () {
-      store.removeFindListener(this.onFind)
+      store.removeFindStartListener(this.onFindStart)
     })
   </script>
 </ffp-result>

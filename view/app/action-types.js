@@ -1,3 +1,4 @@
 export default {
-  'FIND': 'FIND'
+  'FIND_START': 'FIND_START',
+  'FIND': 'FIND',
 }
