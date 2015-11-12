@@ -10,6 +10,7 @@ module.exports = {
       '',
       '.js',
       '.tag',
+      '.css',
     ],
     modulesDirectories: [
       './view',
@@ -22,6 +23,7 @@ module.exports = {
     ],
     loaders: [
       { test: /\.(tag|js)$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015' },
+      { test: /\.css$/, exclude: /node_modules/, loader: 'style-loader!css-loader!postcss-loader' }
     ]
   },
   plugins: [
@@ -31,4 +33,15 @@ module.exports = {
   ]
   externals: [
   ]
+  postcss: () ->
+    return [
+      require('postcss-simple-vars')({
+        variables: () ->
+          return require('./view/app/style-variables')
+        unknown: (node, name, result) ->
+          node.warn result, "Unknown variable '#{ name }'"
+      })
+      require('postcss-nested')
+      require('autoprefixer')
+    ]
 }
