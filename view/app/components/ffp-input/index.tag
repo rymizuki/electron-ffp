@@ -2,7 +2,7 @@ import css from './style'
 import { find } from './action-creator'
 
 <ffp-input>
-  <input type="text" onkeyup={ triggerInput } placeholder="">
+  <input type="text" onkeyup={ triggerInput } placeholder="http://localhost:9000/example.js:10:100">
   <button onclick={ triggerButton }>find</button>
 
   <style>{ css }</style>
