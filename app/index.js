@@ -24,6 +24,12 @@ app.on('ready', function () {
   if (process.platform == 'darwin') {
     let menu = Menu.buildFromTemplate([
       {
+        label: 'FFP',
+        submenu: [
+          { label: 'Quit', accelerator: 'Cmd+Q', click: function () { app.quit() }},
+        ]
+      },
+      {
         label: 'Edit',
         submenu: [
           { label: 'Select All',  accelerator: 'Cmd+A', role: 'selectall' },
